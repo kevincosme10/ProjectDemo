@@ -33,8 +33,6 @@ namespace ProjectDemo.Api.Core.Aplication.Features.Commands.Clients.CreateClient
             client.Direction = request.Direction;  
             client.Country = request.Country;
             
-            //var newStreamer = await _streamerRepository.AddAsync(streamerEntity);
-
             _unitOfWork.ClientRepository.Add(client);
 
             var result = await _unitOfWork.Complete();

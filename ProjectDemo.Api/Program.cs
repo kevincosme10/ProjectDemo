@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Hosting;
 using ProjectDemo.Api.Core.Aplication;
 using ProjectDemo.Api.Infrastructure;
+using ProjectDemo.Api.Middleware;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,7 +28,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+app.UseErrorHandlingMiddleware();
 app.MapControllers();
 
 app.Run();

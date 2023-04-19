@@ -32,10 +32,7 @@ namespace ProjectDemo.Api.Controllers.v1
         public async Task<IActionResult> CreateClient([FromBody] CreateClientCommand command)
         {
             var response = await _mediator.Send(command);
-            //if (!response.IsSuccess)
-            //{
-            //    return BadRequest(response.Errors);
-            //}
+          
 
             return Created("CreateClient", response);
         }

@@ -28,7 +28,8 @@ namespace ProjectDemo.Api.Core.Aplication.Features.Commands.Clients.Update
             if (clientToUpdate is null)
             {
                 _logger.LogError($"No se encontro el cliente id {request.GetId()}");
-                throw new NotFoundException(nameof(Client), request.GetId());
+            
+                throw new KeyNotFoundException($"Registro no encontrado con le id{request.GetId()}");
             }
             else
             {

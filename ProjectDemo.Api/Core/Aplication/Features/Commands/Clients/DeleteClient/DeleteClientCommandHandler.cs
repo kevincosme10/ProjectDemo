@@ -28,7 +28,8 @@ namespace ProjectDemo.Api.Core.Aplication.Features.Commands.Clients.DeleteClient
             if (clientToDelete is null)
             {
                 _logger.LogError($"{request.Id} cliente no existe en el sistema");
-                throw new NotFoundException(nameof(Client), request.Id);
+                throw new KeyNotFoundException($"Registro no encontrado con le id{request.Id}");
+            
             }
             _unitOfWork.ClientRepository.Remove(clientToDelete);
 
